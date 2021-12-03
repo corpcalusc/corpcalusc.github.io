@@ -6,11 +6,17 @@
 -->
 <html>
 	<head>
-		<title>Generic Page - Massively by HTML5 UP</title>
+		<title>CorpCal - Project</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/series-label.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+			
 	</head>
 	<body class="is-preload">
 
@@ -44,13 +50,89 @@
 								<header class="major">
 									<span class="date">December 3, 2021</span>
 									<h1>The Segmentation Model</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<p>The segmentation model uses a U-Net architecture. <br>
+									The data was augmented by rotating every image by an angle of </p>
 								</header>
 								<div class="image main"><img src="images/u-net-2.jpg" alt="" /></div>
 								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								
+								<figure class="highcharts-figure">
+									<div id="container"></div>
+									<script>
+										Highcharts.chart('container', {
+	
+											title: {
+												text: 'Categorical accuracy'
+											},
+	
+											subtitle: {
+												text: 'Comparison for Models 1 and 2'
+											},
+	
+											yAxis: {
+												title: {
+													text: 'Accuracy'
+												}
+											},
+	
+											xAxis: {
+												accessibility: {
+													rangeDescription: 'Range: Number of Epochs'
+												}
+											},
+	
+											legend: {
+												layout: 'vertical',
+												align: 'right',
+												verticalAlign: 'middle'
+											},
+	
+											plotOptions: {
+												series: {
+													label: {
+														connectorAllowed: false
+													},
+													pointStart: 1
+												}
+											},
+	
+											series: [{
+												name: 'TRAIN MODEL 1',
+												data: [0.987275422,0.998165905,0.99869597,0.998887599,0.99899137,0.999063909,0.99912107,0.999168098,0.999206662,0.999238253,0.999264181,0.999293387,0.999315143,0.999329805,0.999342322,0.999353647,0.999365091,0.999373496,0.999386907,0.999390066,0.999405324,0.999412239,0.999421954,0.999426723,0.999433458,0.999445379,0.999448359,0.999454319,0.999459684,0.999445081,0.999469936,0.999479353,0.999484837,0.999487758,0.999490321,0.999495089,0.999503136,0.999510467,0.999513686,0.999516129,0.999518275,0.999522865]
+											}, {
+												name: 'VALIDATION MODEL 1',
+												data: [0.996060431,0.997993648,0.998532474,0.998809218,0.998785913,0.99914068,0.99912715,0.999164343,0.999330044,0.999386609,0.999296784,0.999330163,0.999407113,0.999392211,0.999486566,0.999473333,0.999456465,0.999465704,0.999371648,0.999489307,0.999398291,0.999489009,0.999517679,0.999449074,0.999426782,0.999372065,0.999497533,0.999482989,0.999426186,0.999490142,0.99955368,0.999552906,0.999521613,0.999533772,0.999441266,0.999499977,0.999549806,0.999456465,0.999553263,0.999521732,0.999435425,0.999522269]
+											}, {
+												name: 'TRAIN MODEL 2',
+												data: [0.994101524,0.997924209,0.998173654,0.998328328,0.998429775,0.998494625,0.998543203,0.998577356,0.99860394,0.998628914,0.998650074,0.998646736,0.998679876,0.998679459,0.998708069,0.998715401,0.998722136,0.99873811,0.998743415,0.998744726,0.998758435,0.998767972,0.998767793,0.99878335,0.998787761,0.998801589,0.998797953,0.998810887,0.998811483,0.998826385,0.998822212,0.99883002,0.998840034,0.998839736,0.998844743,0.998848796,0.998857558,0.998859107,0.998866498,0.998872399,0.99887079,0.998878717,0.998841763,0.998877823,0.998892725,0.998889625,0.998897314,0.998905838,0.998902798,0.998907804,0.998914599,0.998914003,0.99891901,0.998922348,0.998914719,0.998924673,0.998932958,0.998934567,0.998937845,0.998940408,0.998950064,0.998946428,0.998947203,0.998957992,0.998956084,0.998953223]
+											}, {
+												name: 'VALIDATION MODEL 2',
+												data: [0.997746944,0.997700334,0.997994542,0.998302817,0.998477101,0.998313785,0.998689413,0.998354316,0.998567104,0.998574972,0.998753786,0.998450041,0.998743176,0.998526573,0.998733521,0.998789549,0.998586416,0.998703957,0.998738408,0.998588443,0.998722076,0.998892307,0.998914599,0.998925686,0.99892199,0.998699903,0.998848081,0.998712659,0.998869419,0.998945713,0.998872638,0.998582363,0.998839855,0.998816729,0.998879433,0.998885632,0.998854041,0.998916268,0.998833776,0.998885036,0.998887658,0.99907124,0.998959541,0.99891746,0.998596787,0.998975635,0.998852491,0.99878633,0.998891592,0.998740554,0.998884559,0.998972535,0.998955011,0.998946667,0.998702765,0.998924136,0.998926997,0.998991728,0.99863255,0.998865724,0.998992324,0.998960495,0.998860836,0.998993278,0.998982668,0.998930216]
+											}],
+	
+											responsive: {
+												rules: [{
+													condition: {
+														maxWidth: 500
+													},
+													chartOptions: {
+														legend: {
+															layout: 'horizontal',
+															align: 'center',
+															verticalAlign: 'bottom'
+														}
+													}
+												}]
+											}
+	
+											});
+											$('#container').highcharts(json);
+									</script>
+									<p class="highcharts-description">
+										Comparison of <b>Categorical Accuracy</b> between Model 1 and Model 2.
+									</p>
+								</figure>
 							</section>
 						</article>
 
@@ -59,7 +141,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section class="split contact">
-							<section class="alt">
+							<!-- <section class="alt">
 								<h3>Address</h3>
 								<p>1234 Somewhere Road #87257<br />
 								Nashville, TN 00000-0000</p>
@@ -67,13 +149,14 @@
 							<section>
 								<h3>Phone</h3>
 								<p><a href="#">(000) 000-0000</a></p>
-							</section>
+							</section> -->
 							<section>
 								<h3>Email</h3>
 								<p><a href="corpcal.usc@gmail.com">corpcal.usc@gmail.com</a></p>
 							</section>
 							<section>
-								<h3>Social</h3>
+								<h3>Github</h3>
+
 								<ul class="icons alt">
 									<li><a href="https://github.com/corpcalusc" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
@@ -91,6 +174,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
 
 	</body>
 </html>
